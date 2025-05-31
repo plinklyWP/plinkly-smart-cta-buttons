@@ -1,0 +1,277 @@
+/* =========================================================
+   GLOBAL COLORS & VARIABLES
+   ========================================================= */
+:root{
+    --amazon-color:#ff9900;
+    --ebay-color:#0064d2;
+    --aliexpress-color:#ff4747;
+    --default-color:#0073aa;
+    --button-text-color:#fff;
+    --button-hover-scale:1.02;
+    --button-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+
+/* =========================================================
+   LEGACY STYLES (affiliate-buttons-group)
+   ========================================================= */
+
+/* Old buttons container */
+.affiliate-buttons-group,
+.affiliate-buttons-group-editor{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:flex-start;
+    margin:0;
+    padding:0;
+    list-style:none;
+    margin-bottom: 10px;
+}
+
+/* Vertical layout support */
+.affiliate-buttons-group.vertical {
+    flex-direction: column;
+    /* Choose only one of the following as needed */
+    /* align-items: stretch;    /* Makes buttons 100% width of the container */
+     align-items: flex-start; /* Makes buttons auto width based on content */
+}
+
+/* If you want buttons 100% width in vertical layout */
+.affiliate-buttons-group.vertical .affiliate-button,
+.affiliate-buttons-group.vertical .plinkly-cta-button,
+.affiliate-buttons-group.vertical .plinkly-btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+}
+
+/* If you want buttons to match content width in vertical layout, 
+   comment out the 3 lines above and use the lines below instead */
+/*
+.affiliate-buttons-group.vertical .affiliate-button,
+.affiliate-buttons-group.vertical .plinkly-cta-button,
+.affiliate-buttons-group.vertical .plinkly-btn {
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
+}
+*/
+
+/* Old button style */
+.affiliate-button, .plinkly-cta-button {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    color:var(--button-text-color,#fff);
+    font-size:16px;
+    font-weight:500;
+    line-height:1.5;
+    transition:transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+    border:none;
+    cursor:pointer;
+    text-align:center;
+    /* flex:1 0 auto; ← Disabled to prevent stretching */
+    max-width:100%;
+    min-height:48px;
+    width: fit-content;
+    background-color:var(--btn-bg,var(--default-color));
+    border:var(--btn-border,none);
+    box-shadow:var(--btn-shadow,none);
+    font-family:var(--btn-font,inherit),sans-serif;
+    font-weight:var(--btn-weight,500);
+    line-height:var(--btn-line,1.5);
+}
+
+.affiliate-button.with-border, .plinkly-cta-button.with-border {
+    border:1px solid #ccc; /* Example, you can use CSS variables */
+}
+
+.affiliate-button.with-shadow, .plinkly-cta-button.with-shadow {
+    box-shadow:0px 2px 8px #999;
+}
+
+/* Hover */
+.affiliate-button:hover,
+.affiliate-button:focus,
+.plinkly-cta-button:hover,
+.plinkly-cta-button:focus {
+    opacity:.95;
+    transform:scale(var(--button-hover-scale,1.02));
+    box-shadow:var(--button-shadow,0 2px 6px rgba(0,0,0,.15));
+    outline:none;
+}
+
+/* Icons inside old/new button */
+.affiliate-button img,
+.plinkly-cta-button img,
+.plinkly-btn img,
+.affiliate-button-logo,
+.plinkly-cta-icon {
+    height:20px;
+    width:auto;
+    margin-right:8px;
+    object-fit:contain;
+    flex-shrink:0;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+/* Brand button colors */
+.amazon-button    { background-color:var(--amazon-color); }
+.ebay-button      { background-color:var(--ebay-color); }
+.aliexpress-button{ background-color:var(--aliexpress-color); }
+.default-button   { background-color:var(--default-color); }
+
+/* Responsive styles for legacy buttons */
+@media(max-width:768px){
+    .affiliate-buttons-group{ gap:8px; }
+    .affiliate-button,
+    .plinkly-cta-button,
+    .plinkly-btn {
+        /* flex:1 1 100%; ← Disabled */
+        font-size:14px;
+        padding:10px 16px;
+        min-height:42px;
+        width: fit-content !important;
+        min-width: unset;
+        max-width: 100%;
+    }
+    .affiliate-button img,
+    .plinkly-cta-button img,
+    .plinkly-btn img {
+        width:20px;
+        height:20px;
+    }
+    /* Support vertical layout on mobile */
+    .affiliate-buttons-group.vertical .affiliate-button,
+    .affiliate-buttons-group.vertical .plinkly-cta-button,
+    .affiliate-buttons-group.vertical .plinkly-btn {
+        width: 100% !important;
+        max-width: 100%;
+    }
+}
+
+/* Dark mode for legacy buttons */
+@media(prefers-color-scheme:dark){
+    .affiliate-button,
+    .plinkly-cta-button { filter:brightness(.95); }
+}
+
+/* =========================================================
+   SETTINGS TABLE (Admin Settings Page)
+   ========================================================= */
+.wrap h1{ margin-bottom:20px; }
+.form-table th{
+    vertical-align:top;
+    text-align:left;
+    padding:8px;
+}
+.form-table td{ padding:8px; }
+.form-table input[type="text"],
+.form-table input[type="color"],
+.form-table input[type="number"],
+.form-table select{
+    width:60%;
+    max-width:300px;
+}
+.form-table input[type="checkbox"]{
+    transform:scale(1.2);
+    margin-right:5px;
+}
+.form-table tr th[colspan="2"]{
+    font-size:1.1em;
+    border-bottom:1px solid #ddd;
+}
+
+/* =========================================================
+   PLINKLY CTA 1.6 (NEW CLASSES)
+   ========================================================= */
+
+/* Group container */
+.plinkly-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--gap-v,10px) var(--gap-h,10px);  /* Set by PHP */
+    direction:var(--dir,ltr);                 /* Set by PHP */
+    margin:27px 0;
+}
+
+/* Row vs column direction */
+.plinkly-row   { flex-direction:row;   width:100%; }
+.plinkly-column{ flex-direction:column;width:fit-content; }
+
+/* Row alignment */
+.plinkly-row.align-left   { justify-content:flex-start; }
+.plinkly-row.align-center { justify-content:center;     }
+.plinkly-row.align-right  { justify-content:flex-end;   }
+
+/* Column alignment */
+.plinkly-column.align-left   { align-items:flex-start; }
+.plinkly-column.align-center { align-items:center;     }
+.plinkly-column.align-right  { align-items:flex-end;   }
+
+/* New button style */
+.plinkly-btn{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    padding:10px 20px;
+    text-decoration:none;
+    color:#fff;
+    width:fit-content;
+    /* CSS variables set by PHP */
+    background:   var(--btn-bg,#3498db);
+    border:       var(--btn-border,0);
+    border-radius:var(--btn-radius,0);
+    box-shadow:   var(--btn-shadow,none);
+    font-family:  var(--btn-font,inherit),sans-serif;
+    font-weight:  var(--btn-weight,normal);
+    line-height:  var(--btn-line,normal);
+    transition:opacity .15s ease;
+}
+
+/* Hover for new button */
+.plinkly-btn:hover{ opacity:.9; }
+
+/* Logo inside new button */
+.plinkly-btn img{
+    height:20px;
+    width:auto;
+    margin-right:8px;
+}
+
+/* Responsive for new button */
+@media(max-width:768px){
+    .plinkly-btn{
+        padding:10px 16px;
+        font-size:14px;
+        width: fit-content !important;
+        min-width: unset;
+        max-width: 100%;
+    }
+}
+
+.plinkly-cta-icon,
+.affiliate-button-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.plinkly-cta-button span {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+}
+
+/* Ensure all buttons have no underline and auto width */
+.affiliate-button,
+.plinkly-cta-button,
+.plinkly-btn {
+    text-decoration: none !important;
+    width: fit-content;
+    min-width: unset;
+    max-width: 100%;
+}

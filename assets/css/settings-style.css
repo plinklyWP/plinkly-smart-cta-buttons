@@ -1,0 +1,251 @@
+/* =========================================================================
+   PlinkLy CTA – Admin UI Theme (Branded, Modern)
+   ========================================================================= */
+
+/* ---------- 0. Brand Variables ---------- */
+:root {
+	--plinkly-blue-600:#006ef1;
+	--plinkly-blue-700:#003f91;
+	--plinkly-grey-050:#fafafa;
+	--plinkly-grey-100:#f8f8f8;
+	--plinkly-grey-200:#f0f0f0;
+	--plinkly-grey-300:#e5e5e5;
+	--plinkly-grey-900:#333;
+	--plinkly-red-500:#ff4d4f;
+	--plinkly-border:1.5px solid var(--plinkly-grey-300);
+	--plinkly-radius:16px;
+	--plinkly-shadow:0 8px 36px rgba(0,111,241,.08);
+	font-family:"Segoe UI","Roboto","Helvetica Neue",sans-serif;
+}
+
+/* =========================================================================
+   1. Header component
+   ========================================================================= */
+.plinkly-header {
+	max-width: 1350px;
+	margin: 26px 0 26px 0;
+	margin-right: 20px;
+	background: #fff;
+	border: var(--plinkly-border);
+	border-radius: 24px;
+	box-shadow: var(--plinkly-shadow);
+	overflow: hidden;
+}
+.plinkly-header-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 38px;
+	background: linear-gradient(90deg,var(--plinkly-blue-600),var(--plinkly-blue-700));
+}
+.plinkly-logo { height: 46px; }
+.plinkly-header-right { display: flex; align-items: center; gap: 19px; position: relative; }
+.plinkly-upgrade-button {
+	background: #fff;
+	color: var(--plinkly-blue-700);
+	font-weight: 700;
+	padding: 10px 20px;
+	border-radius: 25px;
+	text-decoration: none;
+	transition: .18s;
+	box-shadow: 0 1.5px 8px rgba(0,111,241,.08);
+}
+.plinkly-upgrade-button:hover {
+	background: var(--plinkly-blue-700);
+	color: #fff;
+}
+.plinkly-badge {
+	position: absolute; top: -19px; right: 30px;
+	background: var(--plinkly-red-500);
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
+	border-radius: 14px;
+	padding: 2px 7px;
+	box-shadow: 0 0 6px rgba(0,0,0,.15)
+}
+.plinkly-support-link {
+	font-size: 25px;
+	color: #fff;
+	transition: .2s;
+}
+.plinkly-support-link:hover {
+	color: #c8e7ff;
+}
+.plinkly-header-bottom {
+	text-align: center;
+	background: #f9f9f9;
+	padding: 12px 28px;
+}
+.plinkly-page-title {
+	margin: 0;
+	font-size: 24px;
+	font-weight: 800;
+	color: var(--plinkly-grey-900);
+	letter-spacing: .03em;
+}
+
+/* =========================================================================
+   2. Settings container & tabs
+   ========================================================================= */
+#plinkly-settings { font-family: inherit; }
+#plinkly-tabs {
+	background: #fff;
+	border: var(--plinkly-border);
+	border-radius: 18px;
+	overflow: hidden;
+	margin-right: 20px;
+	box-shadow: var(--plinkly-shadow);
+}
+#plinkly-tabs>ul {
+	display: flex;
+	background: var(--plinkly-grey-100);
+	border-bottom: var(--plinkly-border);
+	margin: 0; padding: 0;
+	border-radius: var(--plinkly-radius);
+}
+#plinkly-tabs>ul li { list-style: none; margin: 0; }
+#plinkly-tabs>ul li a {
+	display: block;
+	padding: 14px 26px;
+	color: var(--plinkly-grey-900);
+	font-weight: 600;
+	text-decoration: none;
+	transition: .17s;
+	border-radius: 15px 15px 0 0;
+}
+#plinkly-tabs>ul li.ui-tabs-active a {
+	background: var(--plinkly-blue-600);
+	color: #fff;
+}
+
+/* =========================================================================
+   3. Post-boxes (cards) and Sections
+   ========================================================================= */
+#plinkly-settings .postbox {
+	background: #fff;
+	border: var(--plinkly-border);
+	box-shadow: var(--plinkly-shadow);
+	border-radius: 19px;
+	margin: 28px 20px 0 0;
+	overflow: hidden;
+}
+#plinkly-settings .hndle {
+	background: var(--plinkly-grey-050);
+	padding: 18px 24px;
+	font-size: 19px;
+	font-weight: bold;
+	border-bottom: var(--plinkly-border);
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+	letter-spacing: 0.03em;
+	color: var(--plinkly-blue-700);
+}
+#plinkly-settings .inside {
+	padding: 24px 28px;
+}
+
+/* =========================================================================
+   4. Forms (table) & Fields
+   ========================================================================= */
+#plinkly-settings table.form-table th {
+	width: 260px;
+	padding: 15px 10px;
+	background: var(--plinkly-grey-050);
+	border-bottom: var(--plinkly-border);
+	font-weight: 700;
+	color: var(--plinkly-grey-900);
+	font-size: 1.07em;
+	letter-spacing: 0.01em;
+}
+#plinkly-settings table.form-table td {
+	padding: 15px 10px;
+	border-bottom: var(--plinkly-border);
+}
+#plinkly-settings table.form-table input[type=text],
+#plinkly-settings table.form-table input[type=number],
+#plinkly-settings table.form-table input[type=url],
+#plinkly-settings table.form-table select {
+	width: 60%;
+	padding: 10px 14px;
+	font-size: 15px;
+	border: 1.5px solid #c2d4ea;
+	border-radius: 9px;
+	transition: border-color .18s, box-shadow .14s;
+	background: #f9fbfd;
+}
+#plinkly-settings table.form-table input:focus,
+#plinkly-settings table.form-table select:focus {
+	border-color: var(--plinkly-blue-600);
+	box-shadow: 0 0 0 2px #e1f1fc;
+}
+#plinkly-settings input[type=color] {
+	height: 40px;
+	width: 70px;
+	border: none;
+	padding: 0;
+	background: transparent;
+}
+
+/* Submit button */
+#plinkly-settings .button-primary {
+	background: linear-gradient(90deg, #1e90ff 0, #0073aa 100%);
+	border: none;
+	padding: 13px 32px;
+	font-size: 17px;
+	border-radius: 12px;
+	transition: .15s;
+	font-weight: 800;
+	box-shadow: 0 2px 8px rgba(30,144,255,0.09);
+}
+#plinkly-settings .button-primary:hover {
+	background: linear-gradient(90deg, #0073aa 0, #1e90ff 100%);
+	color: #f2f6ff;
+	box-shadow: 0 5px 17px rgba(30,144,255,0.14);
+}
+
+/* Descriptions & warnings */
+#plinkly-settings .description {
+	font-size: 13px;
+	color: #6d86a5;
+	padding-left: 5px;
+}
+#plinkly-settings .warning {
+	color: var(--plinkly-red-500);
+	font-weight: bold;
+	font-size: 15px;
+}
+
+/* =========================================================================
+   5. Admin notices (Branded)
+   ========================================================================= */
+.plinkly-fade-in { animation: plinklyFadeIn .8s ease forwards; opacity: 0; }
+@keyframes plinklyFadeIn { from { opacity: 0 } to { opacity: 1 } }
+.notice-info-custom {
+	background: #e8f6fd;
+	border-left: 5px solid #21759b;
+	border-radius: 12px;
+	color: #1e528c;
+	font-size: 16px;
+	font-weight: 600;
+	box-shadow: 0 2px 8px rgba(30,144,255,0.05);
+	padding: 12px 18px;
+	margin-bottom: 14px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* =========================================================================
+   6. Media queries
+   ========================================================================= */
+@media (max-width: 900px) {
+	.plinkly-header { max-width: 97%; }
+	.plinkly-header-top { flex-direction: column; gap: 11px; padding: 16px; }
+	.plinkly-header-right { flex-direction: column; gap: 11px; }
+	.plinkly-page-title { font-size: 19px; }
+	#plinkly-tabs>ul li a { padding: 13px 10px; font-size: 15px; }
+	#plinkly-settings .inside { padding: 12px 8px; }
+	#plinkly-settings .hndle { padding: 14px 11px; }
+	#plinkly-settings table.form-table th { width: 120px; padding: 8px 4px; font-size: 13px; }
+}

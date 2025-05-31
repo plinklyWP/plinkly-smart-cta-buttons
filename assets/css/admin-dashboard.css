@@ -1,0 +1,293 @@
+/* =========================================================================
+   PlinkLy – Dashboard Modern Styles (2025) + Original Layout
+   ========================================================================= */
+
+/* ========== 1. Summary Cards & Layout ========== */
+.plinkly-summary {
+	display: flex;
+	gap: 20px;
+	width: 100%;
+}
+.plinkly-summary-item {
+	flex: 1 1 200px;
+	padding: 26px 14px 22px;
+	text-align: center;
+	background: #fff;
+	border-radius: 22px;
+	box-shadow: 0 8px 32px rgba(0,63,145,0.09), 0 1.5px 6px rgba(0,0,0,0.07);
+	border: none;
+	transition: transform .18s, box-shadow .2s;
+	position: relative;
+	cursor: pointer;
+}
+.plinkly-summary-item:hover {
+	transform: translateY(-4px) scale(1.035);
+	box-shadow: 0 14px 42px rgba(0,63,145,0.13), 0 3px 10px rgba(0,0,0,0.10);
+}
+.plinkly-summary-item h3 {
+	margin: 0;
+	font-size: 2.5em;
+	color: var(--plinkly-blue-600);
+	font-weight: 900;
+	letter-spacing: -1px;
+}
+.plinkly-summary-item p {
+	margin: 12px 0 0;
+	font-size: 1.06em;
+	color: #6685a3;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+/* ---- Original Layout helpers ---- */
+.additional-cards-row,
+.charts-card {display: flex; gap: 20px; width: 100%;}
+.dashboard-column-left {width: 30%;}
+.dashboard-column-right {width: 70%; display: flex; flex-direction: column;}
+.charts-card > div,
+.card {
+	background: #fff;
+	border-radius: 19px;
+	box-shadow: 0 4px 22px rgba(0,63,145,0.06);
+	padding: 22px 24px;
+	max-width: 100%;
+	overflow: hidden;
+	transition: box-shadow .16s;
+	margin-right: 20px;
+}
+.card:hover { box-shadow: 0 8px 36px rgba(0,63,145,0.13); }
+.daily-click-trend-card {height:400px;position:relative; margin-right: 20px;}
+#chartPeriodSelect{position:absolute;top:15px;right:15px;}
+
+.plinkly-summary-card-1{width:30%}
+.plinkly-summary-card-2{display:flex;gap:20px;width:70%}
+
+/* ========== 2. Filters and Date Box ========== */
+.detailed-data-header, .top-clicked-buttons-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 4px;
+}
+.detailed-date-filter, .plinkly-filters {
+	background: #f7fafd;
+	border: 1.5px solid #e6eefa;
+	border-radius: 13px;
+	padding: 18px 22px;
+	margin-bottom: 26px;
+	box-shadow: 0 2px 12px rgba(30,144,255,.04);
+}
+.detailed-date-filter .label-text, .plinkly-filters label {
+	font-weight: 700;
+	color: var(--plinkly-blue-700);
+	font-size: 1em;
+	margin-bottom: 5px;
+	letter-spacing: 0.01em;
+}
+.detailed-date-form input[type="date"], .plinkly-filters input[type="date"], .plinkly-filters select {
+	padding: 7px 14px;
+	border: 1.3px solid #c2d4ea;
+	border-radius: 7px;
+	font-size: 15px;
+	background: #f9fbfd;
+	transition: border-color 0.18s;
+}
+.detailed-date-form input[type="date"]:focus,
+.plinkly-filters select:focus {
+	border-color: #0073aa;
+	box-shadow: 0 0 0 2px #e1f1fc;
+}
+.detailed-date-filter-controls, .detailed-date-form {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
+}
+.date-label {display: flex;flex-direction: column;}
+.label-text {margin-bottom: 4px;}
+
+/* ========== 3. Buttons & Menu ========== */
+.button, .export-button, .detailed-date-filter .button {
+	background: linear-gradient(90deg, #1e90ff 0, #0073aa 100%);
+	color: #fff;
+	border: none;
+	border-radius: 9px;
+	font-weight: 700;
+	font-size: 15px;
+	padding: 8px 22px;
+	box-shadow: 0 2px 9px rgba(30,144,255,0.08);
+	cursor: pointer;
+	transition: transform .13s, box-shadow .18s, background .19s;
+	margin: 0 3px;
+}
+.button:hover, .export-button:hover {
+	transform: scale(1.05) translateY(-1.5px);
+	background: linear-gradient(90deg, #0073aa 0, #1e90ff 100%);
+	box-shadow: 0 5px 15px rgba(30,144,255,0.17);
+	color: #f2f6ff;
+}
+.top-buttons-dropdown {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background: #fff;
+	border: 1px solid #d5e2f3;
+	border-radius: 7px;
+	box-shadow: 0 6px 22px rgba(0,63,145,.10);
+	z-index: 1000;
+	min-width: 180px;
+}
+.top-buttons-dropdown .button, .top-buttons-dropdown .export-button {
+	display: block;
+	text-align: left;
+	width: 100%;
+	border: none;
+	background: none;
+	padding: 10px 16px;
+	color: #003f91;
+	font-size: 15px;
+	border-radius: 6px;
+}
+.top-buttons-dropdown .button:hover, .top-buttons-dropdown .export-button:hover {
+	background: #f4faff;
+	color: #0073aa;
+}
+
+/* ========== 4. Widefat Table ========== */
+table.widefat {
+	width: 100%;
+	margin-top: 20px;
+	border-collapse: collapse;
+	background: #fbfdff;
+	border-radius: 13px;
+	overflow: hidden;
+}
+table.widefat th, table.widefat td {
+	padding: 12px 15px;
+	border: 1px solid #e5e9f3;
+	text-align: left;
+}
+table.widefat th {
+	background: #f1f7fb;
+	font-size: 1em;
+	font-weight: 700;
+	color: #1d293f;
+	letter-spacing: 0.03em;
+}
+table.widefat tr:nth-child(odd) { background: #f7fafc; }
+table.widefat tr:hover { background: #e9f5ff; }
+
+/* ========== 5. Pagination ========== */
+.tab-pagination {
+	text-align: center;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	gap: 6px;
+}
+.tab-pagination .button {margin:0 2px;}
+.tab-pagination .current {
+	padding:6px 10px;
+	background:#e4f0fa;
+	border-radius: 8px;
+	font-weight: 700;
+	color: #2266aa;
+	border: 1.5px solid #c3def4;
+}
+.tab-pagination .dots {
+	padding:6px 10px;
+	color: #999;
+}
+
+/* ========== 6. Notices ========== */
+.notice-info, .plinkly-smart-insight {
+	border-radius: 11px;
+	background: #e8f6fd;
+	color: #1e528c;
+	border: 1.5px solid #b4d9ec;
+	padding: 13px 24px;
+	margin-bottom: 18px;
+	font-size: 16px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	box-shadow: 0 1px 8px rgba(30,144,255,0.09);
+}
+
+/* ========== 7. Blur overlay (PRO only) ========== */
+.plinkly-stats-wrapper.blur {
+	filter: blur(4px);
+	pointer-events: none;
+	position: relative;
+}
+.plinkly-stats-wrapper.blur::after {
+	content: 'PRO only';
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255,255,255,.7);
+	font-weight: bold;
+	font-size: 1.12em;
+	color: #d91f42;
+	z-index: 50;
+	border-radius: 20px;
+	letter-spacing: .03em;
+}
+
+/* ========== 8. Responsive ========== */
+@media (max-width: 992px) {
+	.additional-cards-row,
+	.charts-card,
+	.plinkly-summary {
+		flex-direction: column;
+		gap: 20px;
+	}
+	.dashboard-column-left,
+	.dashboard-column-right,
+	.plinkly-summary-card-1,
+	.plinkly-summary-card-2 {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+@media (max-width: 480px) {
+	.detailed-date-form { flex-direction: column; align-items: stretch; gap: 12px; }
+	.tab-pagination { flex-direction: column; gap: 10px; }
+	.card, .charts-card > div { padding: 12px 3px; }
+}
+
+html[dir=rtl] .daily-click-trend-header { flex-direction: row-reverse; }
+html[dir="rtl"] .card {
+    margin-right: 20px;
+}
+
+.top-platform,.top-posts{
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 50%;
+}
+
+.top-buttons-menu-wrapper .top-buttons-dropdown {
+    display: none;
+}
+.top-buttons-menu-wrapper.open .top-buttons-dropdown {
+    display: block;
+}
+.top-buttons-menu-wrapper {
+    position: relative;
+}
+.top-buttons-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+}
+.plinkly-item-top-link h3 {
+    font-size: 24px;
+}

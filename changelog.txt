@@ -1,0 +1,23 @@
+== Changelog ==
+
+= 1.0.1 – 2025-05-17 =
+
+🎉 **Initial Public Release**
+
+**Added:**
+- Powerful, easy-to-use Gutenberg block for creating dynamic CTA buttons.
+- Full click tracking and analytics dashboard integrated into WordPress admin.
+- Basic affiliate link detection and optimization.
+
+🚀 **Premium Features (via Plinkly Cloud):**
+- AI-powered CTA generator for optimized button text and style suggestions.
+- Real-time automatic detection of company logos and colors.
+
+**Improved:**
+- Enhanced affiliate domain detection speed.
+- General compatibility improvements.
+
+**Fixed:**
+- Resolved style override conflicts with specific themes.
+- Corrected content positioning issue in full-height sections.
+

@@ -1,0 +1,714 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plinkly – Smart CTA Buttons\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-31 12:14+0000\n"
+"PO-Revision-Date: 2025-05-31 12:19+0000\n"
+"Last-Translator: Ahmed K. Aladl\n"
+"Language-Team: French (France)\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.7.2; php-8.2.28\n"
+"X-Domain: plinkly-smart-cta-buttons"
+
+#: includes/emails/class-email-license-key.php:15
+msgid "[PlinkLy] Your License Key"
+msgstr "[PlinkLy] Votre clé de licence"
+
+#: admin/general-settings-page.php:64
+msgid "Access denied."
+msgstr "Accès refusé."
+
+#: templates/emails/plinkly-license-key.php:41
+msgid "Activate in WordPress"
+msgstr "Activer dans WordPress"
+
+#: admin/license-page.php:146
+msgid "Active"
+msgstr "Actif"
+
+#: admin/general-settings-page.php:96
+msgid "Add nofollow to links?"
+msgstr "Ajouter nofollow aux liens ?"
+
+#: elementor/plinkly-cta-widget.php:139
+msgid "Advanced"
+msgstr "Avancé"
+
+#: elementor/plinkly-cta-widget.php:68
+msgid "After Logo"
+msgstr "Après le logo"
+
+#: elementor/plinkly-cta-widget.php:70
+msgid "After Text"
+msgstr "Après le texte"
+
+#. Description of the plugin
+msgid "AI-driven CTA button generator with analytics."
+msgstr "Générateur de boutons CTA piloté par l'IA avec analyses."
+
+#: admin/general-settings-page.php:181
+msgid "AliExpress Aff Params"
+msgstr "Paramètres d'affiliation AliExpress"
+
+#: elementor/plinkly-cta-widget.php:224
+msgid "Alignment"
+msgstr "Alignement"
+
+#: templates/emails/plinkly-license-key.php:56
+msgid "All rights reserved."
+msgstr "Tous droits réservés."
+
+#: admin/general-settings-page.php:179
+msgid "Amazon Affiliate Tag"
+msgstr "Étiquette d'affiliation Amazon"
+
+#: admin/general-settings-page.php:159
+msgid "Apply defaults to all existing buttons."
+msgstr "Appliquer les valeurs par défaut à tous les boutons existants."
+
+#: admin/ajax-handlers.php:30
+msgid "Authentication required."
+msgstr "Authentification requise."
+
+#: admin/dashboard/dashboard-summary.php:18
+msgid "Average Clicks per Day"
+msgstr "Clics moyens par jour"
+
+#: elementor/plinkly-cta-widget.php:82
+msgid "Background Color"
+msgstr "Couleur d'arrière-plan"
+
+#: admin/general-settings-page.php:75
+msgid "Basic"
+msgstr "Basique"
+
+#: elementor/plinkly-cta-widget.php:67
+msgid "Before Logo"
+msgstr "Avant le logo"
+
+#: elementor/plinkly-cta-widget.php:69
+msgid "Before Text"
+msgstr "Avant le texte"
+
+#: admin/general-settings-page.php:128 elementor/plinkly-cta-widget.php:110
+msgid "Border Color"
+msgstr "Couleur de la bordure"
+
+#: admin/general-settings-page.php:129 elementor/plinkly-cta-widget.php:116
+msgid "Border Radius (px)"
+msgstr "Rayon de la bordure (px)"
+
+#: admin/general-settings-page.php:122 elementor/plinkly-cta-widget.php:88
+msgid "Border Style"
+msgstr "Style de bordure"
+
+#: admin/general-settings-page.php:127 elementor/plinkly-cta-widget.php:100
+msgid "Border Width (px)"
+msgstr "Largeur de la bordure (px)"
+
+#: elementor/plinkly-cta-widget.php:41
+msgid "Button Link"
+msgstr "Lien du bouton"
+
+#: elementor/plinkly-cta-widget.php:34
+msgid "Button Text"
+msgstr "Texte du bouton"
+
+#: elementor/plinkly-cta-widget.php:20
+msgid "Buttons"
+msgstr "Boutons"
+
+#: elementor/plinkly-cta-widget.php:202
+msgid "Buttons List"
+msgstr "Liste des boutons"
+
+#: elementor/plinkly-cta-widget.php:306
+msgid "Buy Now"
+msgstr "Acheter maintenant"
+
+#: admin/general-settings-page.php:171
+msgid "Bypass cache and always fetch latest company data."
+msgstr ""
+"Contournez le cache et récupérez toujours les dernières données de "
+"l'entreprise."
+
+#: elementor/plinkly-cta-widget.php:228
+msgid "Center"
+msgstr "Centre"
+
+#: admin/dashboard/dashboard-trend-charts.php:39
+msgid "Click Summary"
+msgstr "Cliquez sur Résumé"
+
+#: admin/dashboard/dashboard-trend-charts.php:44
+#: admin/dashboard/dashboard-top-buttons.php:55
+msgid "Clicks"
+msgstr "Clics"
+
+#: admin/dashboard/dashboard-trend-charts.php:27
+msgid "Clicks decreased this week"
+msgstr "Les clics ont diminué cette semaine"
+
+#: admin/dashboard/dashboard-trend-charts.php:23
+msgid "Clicks increased this week"
+msgstr "Les clics ont augmenté cette semaine"
+
+#: admin/dashboard/dashboard-trend-charts.php:25
+#: admin/dashboard/dashboard-trend-charts.php:29
+msgid "compared to last week."
+msgstr "par rapport à la semaine dernière."
+
+#: elementor/plinkly-cta-widget.php:30
+msgid "Content"
+msgstr "Contenu"
+
+#: admin/dashboard/dashboard-top-buttons.php:57
+msgid "CTR"
+msgstr "CTR"
+
+#: admin/dashboard/dashboard-trend-charts.php:82
+msgid "Daily"
+msgstr "Tous les jours"
+
+#: admin/dashboard/dashboard-trend-charts.php:80
+msgid "Daily Click Trend"
+msgstr "Tendance des clics quotidiens"
+
+#: elementor/plinkly-cta-widget.php:94
+msgid "Dashed"
+msgstr "Pointillé"
+
+#: admin/general-settings-page.php:85
+msgid "Default Button Color"
+msgstr "Couleur du bouton par défaut"
+
+#: admin/dashboard/dashboard-detailed-data.php:13
+msgid "Detailed Data"
+msgstr "Données détaillées"
+
+#: elementor/plinkly-cta-widget.php:93
+msgid "Dotted"
+msgstr "Pointé"
+
+#: admin/general-settings-page.php:180
+msgid "eBay Campaign ID"
+msgstr "ID de campagne eBay"
+
+#: admin/tracking-settings-page.php:53
+msgid "Enable click tracking?"
+msgstr "Activer le suivi des clics ?"
+
+#: templates/emails/plinkly-license-key.php:36
+#, php-format
+msgid "Expiry date: %s"
+msgstr "Date d'expiration : %s"
+
+#: admin/dashboard/dashboard-detailed-data.php:27
+#: admin/dashboard/dashboard-top-buttons.php:25
+msgid "Export as CSV"
+msgstr "Exporter au format CSV"
+
+#: admin/dashboard/dashboard-top-buttons.php:46
+msgid "Filter"
+msgstr "Filtre"
+
+#: admin/dashboard/dashboard-detailed-data.php:48
+msgid "Filter Detailed Data"
+msgstr "Filtrer les données détaillées"
+
+#: admin/dashboard/dashboard-detailed-data.php:91
+#: admin/dashboard/dashboard-top-buttons.php:84
+msgid "First"
+msgstr "D'abord"
+
+#: admin/general-settings-page.php:141
+msgid "Font Family"
+msgstr "Famille de polices"
+
+#: admin/general-settings-page.php:145
+msgid "Font Weight"
+msgstr "Poids de la police"
+
+#: admin/general-settings-page.php:162
+msgid "Force Change Always"
+msgstr "Forcer le changement toujours"
+
+#: admin/general-settings-page.php:168
+msgid "Force Fetch Company Data"
+msgstr "Forcer la récupération des données de l'entreprise"
+
+#: admin/general-settings-page.php:77
+msgid "Force Options"
+msgstr "Options de force"
+
+#: admin/general-settings-page.php:156
+msgid "Force Update Old Buttons"
+msgstr "Forcer la mise à jour des anciens boutons"
+
+#: admin/dashboard/dashboard-detailed-data.php:41
+#: admin/dashboard/dashboard-top-buttons.php:39
+msgid "From:"
+msgstr "Depuis:"
+
+#: admin/admin-menus.php:70 admin/admin-menus.php:71
+msgid "General Settings"
+msgstr "Paramètres généraux"
+
+#: admin/notices.php:19
+msgid "General settings saved successfully."
+msgstr "Paramètres généraux enregistrés avec succès."
+
+#: templates/emails/plinkly-license-key.php:48
+msgid "Have questions? Our team is here to help."
+msgstr "Des questions ? Notre équipe est là pour vous aider."
+
+#: templates/emails/plinkly-license-key.php:21
+msgid "Hi there,"
+msgstr "Salut,"
+
+#: elementor/plinkly-cta-widget.php:239
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: admin/general-settings-page.php:136
+msgid "Horizontal Gap"
+msgstr "Espace horizontal"
+
+#: elementor/plinkly-cta-widget.php:246
+msgid "Horizontal Spacing"
+msgstr "Espacement horizontal"
+
+#. URI of the plugin
+msgid "https://plink.ly"
+msgstr "https://plink.ly"
+
+#: elementor/plinkly-cta-widget.php:57
+msgid "Icon"
+msgstr "Icône"
+
+#: elementor/plinkly-cta-widget.php:63
+msgid "Icon Position"
+msgstr "Position de l'icône"
+
+#: admin/dashboard/dashboard-top-buttons.php:56
+msgid "Impressions"
+msgstr "Impressions"
+
+#: admin/license-page.php:147
+msgid "Inactive"
+msgstr "Inactif"
+
+#: admin/ajax-handlers.php:34
+msgid "Insufficient capability."
+msgstr "Capacité insuffisante."
+
+#: elementor/plinkly-cta-widget.php:181
+msgid "Large (40px)"
+msgstr "Grand (40 px)"
+
+#: admin/dashboard/dashboard-detailed-data.php:113
+#: admin/dashboard/dashboard-top-buttons.php:106
+msgid "Last"
+msgstr "Dernier"
+
+#: admin/dashboard/dashboard-trend-charts.php:55
+msgid "Last 30 Days"
+msgstr "Les 30 derniers jours"
+
+#: admin/dashboard/dashboard-trend-charts.php:56
+msgid "Last 60 Days"
+msgstr "Les 60 derniers jours"
+
+#: admin/dashboard/dashboard-trend-charts.php:54
+msgid "Last 7 Days"
+msgstr "Les 7 derniers jours"
+
+#: admin/dashboard/dashboard-trend-charts.php:57
+msgid "Last 90 Days"
+msgstr "Les 90 derniers jours"
+
+#: admin/dashboard/dashboard-trend-charts.php:53
+msgid "Last Month"
+msgstr "Mois dernier"
+
+#: admin/dashboard/dashboard-trend-charts.php:59
+msgid "Last Year"
+msgstr "L'année dernière"
+
+#: elementor/plinkly-cta-widget.php:220
+msgid "Layout"
+msgstr "Mise en page"
+
+#: elementor/plinkly-cta-widget.php:236
+msgid "Layout Direction"
+msgstr "Direction de la mise en page"
+
+#: elementor/plinkly-cta-widget.php:227
+msgid "Left"
+msgstr "Gauche"
+
+#: admin/admin-menus.php:50 admin/admin-menus.php:51
+msgid "License"
+msgstr "Licence"
+
+#: includes/license.php:142 admin/notices.php:34 admin/license-page.php:101
+msgid "License activated successfully."
+msgstr "Licence activée avec succès."
+
+#: admin/license-page.php:133
+msgid "License Activation"
+msgstr "Activation de la licence"
+
+#: admin/notices.php:56
+msgid "License is not active. Please enter a valid license key."
+msgstr ""
+"La licence n'est pas active. Veuillez saisir une clé de licence valide."
+
+#: admin/license-page.php:137
+msgid "License Key"
+msgstr "Clé de licence"
+
+#: admin/notices.php:39
+msgid "License key saved, but activation failed. Please check your key."
+msgstr ""
+"Clé de licence enregistrée, mais l'activation a échoué. Veuillez vérifier "
+"votre clé."
+
+#: admin/license-page.php:102
+msgid "License verification failed."
+msgstr "La vérification de la licence a échoué."
+
+#: admin/general-settings-page.php:147
+msgid "Line-Height"
+msgstr "Hauteur de ligne"
+
+#: admin/dashboard/dashboard-detailed-data.php:57
+#: admin/dashboard/dashboard-detailed-data.php:72
+#: admin/dashboard/dashboard-top-buttons.php:54
+msgid "Link"
+msgstr "Lien"
+
+#: elementor/plinkly-cta-widget.php:187
+msgid "Link rel attribute"
+msgstr "Attribut de lien rel"
+
+#: elementor/plinkly-cta-widget.php:176
+msgid "Logo Size"
+msgstr "Taille du logo"
+
+#: elementor/plinkly-cta-widget.php:180
+msgid "Medium (30px)"
+msgstr "Moyen (30 px)"
+
+#: admin/dashboard/dashboard-trend-charts.php:84
+msgid "Monthly"
+msgstr "Mensuel"
+
+#: admin/dashboard/dashboard-summary.php:31
+#: admin/dashboard/dashboard-summary.php:38
+msgid "N/A"
+msgstr "N / A"
+
+#: elementor/plinkly-cta-widget.php:51
+msgid "No"
+msgstr "Non"
+
+#: admin/dashboard/dashboard-trend-charts.php:31
+msgid "No change in clicks this week."
+msgstr "Aucun changement dans les clics cette semaine."
+
+#: admin/dashboard/dashboard-detailed-data.php:120
+msgid "No clicks have been recorded yet."
+msgstr "Aucun clic n'a encore été enregistré."
+
+#: admin/license-page.php:42
+msgid "No permission"
+msgstr "Aucune autorisation"
+
+#: elementor/plinkly-cta-widget.php:91 elementor/plinkly-cta-widget.php:190
+msgid "None"
+msgstr "Aucun"
+
+#: admin/general-settings-page.php:90
+msgid "Open in New Tab by Default?"
+msgstr "Ouvrir dans un nouvel onglet par défaut ?"
+
+#: elementor/plinkly-cta-widget.php:48
+msgid "Open in New Tab?"
+msgstr "Ouvrir dans un nouvel onglet ?"
+
+#: admin/general-settings-page.php:165
+msgid "Override all button styles."
+msgstr "Remplacer tous les styles de boutons."
+
+#: admin/tracking-settings-page.php:37
+msgid "Permission denied."
+msgstr "Permission refusée."
+
+#: admin/dashboard/dashboard-detailed-data.php:58
+msgid "Platform"
+msgstr "Plate-forme"
+
+#. page-title
+#: admin/admin-menus.php:38 admin/admin-menus.php:39
+msgid "PlinkLy CTA"
+msgstr "CTA PlinkLy"
+
+#: elementor/plinkly-cta-widget.php:12
+msgid "PlinkLy CTA Buttons"
+msgstr "Boutons CTA PlinkLy"
+
+#: admin/header.php:46
+msgid "PlinkLy Logo"
+msgstr "Logo PlinkLy"
+
+#. Author of the plugin
+msgid "PlinkLy Team"
+msgstr "L'équipe PlinkLy"
+
+#: includes/emails/class-email-license-key.php:11
+msgid "PlinkLy – License Key"
+msgstr "PlinkLy – Clé de licence"
+
+#. Name of the plugin
+msgid "Plinkly – Smart CTA Buttons"
+msgstr "Plinkly – Boutons CTA intelligents"
+
+#: admin/dashboard/dashboard-detailed-data.php:59
+msgid "Post"
+msgstr "Poste"
+
+#: admin/notices.php:26
+msgid "Privacy & tracking settings saved successfully."
+msgstr ""
+"Les paramètres de confidentialité et de suivi ont été enregistrés avec "
+"succès."
+
+#: admin/dashboard/dashboard-detailed-data.php:30
+#: admin/dashboard/dashboard-top-buttons.php:28
+msgid "Reset Filters"
+msgstr "Réinitialiser les filtres"
+
+#: elementor/plinkly-cta-widget.php:229
+msgid "Right"
+msgstr "Droite"
+
+#: admin/license-page.php:156
+msgid "Save & Validate License"
+msgstr "Enregistrer et valider la licence"
+
+#: includes/emails/class-email-license-key.php:12
+msgid "Sends the license key after a subscription is activated or renewed."
+msgstr ""
+"Envoie la clé de licence après l'activation ou le renouvellement d'un "
+"abonnement."
+
+#: admin/general-settings-page.php:67
+msgid "Settings"
+msgstr "Paramètres"
+
+#: admin/general-settings-page.php:133
+msgid "Shadow Blur"
+msgstr "Flou d'ombre"
+
+#: elementor/plinkly-cta-widget.php:161
+msgid "Shadow Blur (px)"
+msgstr "Flou d'ombre (px)"
+
+#: admin/general-settings-page.php:134 elementor/plinkly-cta-widget.php:170
+msgid "Shadow Color"
+msgstr "Couleur de l'ombre"
+
+#: admin/general-settings-page.php:131
+msgid "Shadow Offset X"
+msgstr "Décalage d'ombre X"
+
+#: elementor/plinkly-cta-widget.php:143
+msgid "Shadow Offset X (px)"
+msgstr "Décalage de l'ombre X (px)"
+
+#: admin/general-settings-page.php:132
+msgid "Shadow Offset Y"
+msgstr "Décalage de l'ombre Y"
+
+#: elementor/plinkly-cta-widget.php:152
+msgid "Shadow Offset Y (px)"
+msgstr "Décalage de l'ombre Y (px)"
+
+#: elementor/plinkly-cta-widget.php:179
+msgid "Small (20px)"
+msgstr "Petit (20px)"
+
+#: elementor/plinkly-cta-widget.php:92
+msgid "Solid"
+msgstr "Solide"
+
+#: admin/dashboard-page.php:16
+msgid "Statistics are only available in the Pro version."
+msgstr "Les statistiques ne sont disponibles que dans la version Pro."
+
+#: admin/general-settings-page.php:76 elementor/plinkly-cta-widget.php:78
+msgid "Style"
+msgstr "Style"
+
+#: admin/header.php:63
+msgid "Support"
+msgstr "Soutien"
+
+#: admin/general-settings-page.php:78
+msgid "Tags"
+msgstr "Mots clés"
+
+#: admin/dashboard/dashboard-detailed-data.php:56
+#: admin/dashboard/dashboard-top-buttons.php:53
+msgid "Text"
+msgstr "Texte"
+
+#: templates/emails/plinkly-license-key.php:24
+#, php-format
+msgid "Thank you for choosing the %s plan! Below is your personal license key:"
+msgstr ""
+"Merci d'avoir choisi l'offre %s ! Vous trouverez ci-dessous votre clé de "
+"licence personnelle :"
+
+#: admin/dashboard/dashboard-trend-charts.php:52
+msgid "This Month"
+msgstr "Ce mois-ci"
+
+#: admin/dashboard/dashboard-trend-charts.php:58
+msgid "This Year"
+msgstr "Cette année"
+
+#: admin/dashboard/dashboard-detailed-data.php:60
+#: admin/dashboard/dashboard-trend-charts.php:43
+msgid "Time"
+msgstr "Temps"
+
+#: admin/dashboard/dashboard-detailed-data.php:45
+#: admin/dashboard/dashboard-top-buttons.php:43
+msgid "To:"
+msgstr "À:"
+
+#: admin/dashboard/dashboard-trend-charts.php:50
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: admin/dashboard/dashboard-top-buttons.php:12
+msgid "Top Clicked Buttons"
+msgstr "Boutons les plus cliqués"
+
+#: admin/dashboard/dashboard-summary.php:35
+msgid "Top Clicked Link"
+msgstr "Lien le plus cliqué"
+
+#: admin/dashboard/dashboard-summary.php:39
+msgid "Top Platform"
+msgstr "Plateforme supérieure"
+
+#: admin/dashboard/dashboard-trend-charts.php:95
+msgid "Top Platforms"
+msgstr "Meilleures plateformes"
+
+#: admin/dashboard/dashboard-trend-charts.php:91
+msgid "Top Posts by Clicks"
+msgstr "Meilleurs articles par clics"
+
+#: admin/dashboard/dashboard-trend-charts.php:60
+msgid "Total"
+msgstr "Total"
+
+#: admin/dashboard/dashboard-summary.php:12
+msgid "Total Clicks"
+msgstr "Nombre total de clics"
+
+#: admin/tracking-settings-page.php:57
+msgid "Track button clicks for analytics."
+msgstr "Suivez les clics sur les boutons pour les analyses."
+
+#: admin/tracking-settings-page.php:49
+msgid "Tracking Options"
+msgstr "Options de suivi"
+
+#: admin/tracking-settings-page.php:40 admin/admin-menus.php:60
+#: admin/admin-menus.php:61
+msgid "Tracking Settings"
+msgstr "Paramètres de suivi"
+
+#: elementor/plinkly-cta-widget.php:130
+msgid "Typography"
+msgstr "Typographie"
+
+#: includes/license.php:130
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#: admin/dashboard-page.php:18
+msgid "Upgrade Now"
+msgstr "Mettre à niveau maintenant"
+
+#: admin/ajax-handlers.php:38
+msgid "Upgrade required."
+msgstr "Mise à niveau requise."
+
+#: admin/header.php:55
+msgid "Upgrade to PRO"
+msgstr "Passez à PRO"
+
+#: elementor/plinkly-cta-widget.php:240
+msgid "Vertical"
+msgstr "Verticale"
+
+#: admin/general-settings-page.php:137
+msgid "Vertical Gap"
+msgstr "Écart vertical"
+
+#: elementor/plinkly-cta-widget.php:257
+msgid "Vertical Spacing"
+msgstr "Espacement vertical"
+
+#: admin/dashboard/dashboard-trend-charts.php:83
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#: admin/tracking-settings-page.php:60
+msgid "When enabled, each CTA click is stored for statistics and CSV export."
+msgstr ""
+"Lorsque cette option est activée, chaque clic CTA est stocké pour les "
+"statistiques et l'exportation CSV."
+
+#: elementor/plinkly-cta-widget.php:50
+msgid "Yes"
+msgstr "Oui"
+
+#: admin/general-settings-page.php:99
+msgid "Yes, add rel=\"nofollow sponsored\" to links"
+msgstr "Oui, ajoutez rel=\"nofollow sponsored\" aux liens"
+
+#: admin/general-settings-page.php:93
+msgid "Yes, open links in a new tab"
+msgstr "Oui, ouvrir les liens dans un nouvel onglet"
+
+#: admin/dashboard/dashboard-trend-charts.php:51
+msgid "Yesterday"
+msgstr "Hier"
+
+#: admin/notices.php:51
+msgid "Your license is active. All features are unlocked!"
+msgstr "Votre licence est active. Toutes les fonctionnalités sont débloquées !"
+
+#: includes/emails/class-email-license-key.php:16
+msgid "Your PlinkLy License Key"
+msgstr "Votre clé de licence PlinkLy"
+
+#: templates/emails/plinkly-license-key.php:52
+msgid "🎫 Submit a Support Ticket"
+msgstr "🎫 Soumettre un ticket d'assistance"
+
+#: templates/emails/plinkly-license-key.php:51
+msgid "📚 Documentation"
+msgstr "📚 Documentation"

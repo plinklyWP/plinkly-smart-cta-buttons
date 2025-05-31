@@ -1,0 +1,27 @@
+Plinkly – Smart CTA Buttons for WordPress  
+Copyright (c) 2025 PLINKLY SOFTWARE LTD  
+Plugin URI: https://plink.ly  
+
+This plugin is free software: you can redistribute it and/or modify  
+it under the terms of the GNU General Public License (GPL) version 2  
+as published by the Free Software Foundation.  
+
+This plugin is distributed in the hope that it will be useful,  
+but WITHOUT ANY WARRANTY; without even the implied warranty of  
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+== Premium Features ==  
+This plugin includes optional premium features delivered via the Plinkly Cloud service.  
+Access to these premium cloud-based features requires a valid paid license.  
+
+The core plugin code, including all files distributed on WordPress.org,  
+remains fully GPL-compatible. However, premium services provided via the  
+Plinkly Cloud platform require a separate account and license for activation.  
+
+Unauthorized redistribution or reverse engineering of premium cloud  
+features without a valid license or authorization is prohibited.  
+
+To obtain a license for premium features or learn more, visit:  
+https://plink.ly  
+
+Contact: support@plinkly.com
