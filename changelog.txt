@@ -1,8 +1,8 @@
 == Changelog ==
 
-= 1.0.1 – 2025-05-17 =
+= 1.0.0 – 2025-05-17 =
 
-🎉 **Initial Public Release**
+**Initial Public Release**
 
 **Added:**
 - Powerful, easy-to-use Gutenberg block for creating dynamic CTA buttons.
@@ -20,4 +20,33 @@
 **Fixed:**
 - Resolved style override conflicts with specific themes.
 - Corrected content positioning issue in full-height sections.
+
+= 1.1.0 - 2025-04-06 =
+**Improved:**
+- Improved: Button design options (border, radius, font control).
+- Fixed: Style conflicts with some WordPress themes.
+
+= 1.1.1 - 2025-04-06 =
+**Improved:**
+- Improved: Button design options.
+
+= 1.2.0 - 2025-04-06 =
+**New:**
+- Customize font size, logo size, and button padding. Enhanced analytics dashboard and improved performance.
+
+= 1.3.0 - 2025-06-18 =
+**New:**
+- Plinkly AI Advice — Get actionable AI-powered tips and insights in your analytics dashboard.
+- A/B Testing — Run split tests for your CTA buttons, compare variants, and identify the winner automatically.
+
+= 1.3.1 - 2025-06-25 =
+**Improved:**
+- Enhanced analytics dashboard and improved performance.
+
+= 1.4.0 - 30/06/2025 =
+* Improved: Analytics dashboard layout and performance.
+* Added: Support for new add-ons (EasyLink, Placement Tracker, Link Sentinel).
+
+
+
 

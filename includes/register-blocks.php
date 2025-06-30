@@ -87,6 +87,8 @@ function plinkly_register_blocks() {
         'licenseKey' => $license_key,
         'hmacSecret' => $hmac_secret,
         'nonce'      => wp_create_nonce( 'plinkly_ai' ),
+        'isPro'      => plinkly_is_pro_active(),
+        'abEnabled'  => (int) get_option( 'plinkly_enable_ab_test', 0 ),
     ];
     wp_add_inline_script(
         $handle,
@@ -100,28 +102,21 @@ function plinkly_register_blocks() {
         [
             'editor_script'   => $handle,
             'render_callback' => 'plycta_render_affiliate_button_group',
-            'attributes'      => [
-                'buttons'        => [
-                    'type'    => 'array',
-                    'default' => [],
-                    'items'   => [
-                        'type'       => 'object',
-                        'properties' => [
-                            'text'         => [ 'type' => 'string',  'default' => 'Buy Now' ],
-                            'link'         => [ 'type' => 'string',  'default' => ''        ],
-                            'openInNewTab' => [ 'type' => 'boolean', 'default' => false     ],
-                            'iconUrl'      => [ 'type' => 'string',  'default' => ''        ],
-                            'iconId'       => [ 'type' => 'number',  'default' => 0         ],
-                            'customColor'  => [ 'type' => 'string',  'default' => ''        ],
-                            // إذا لديك خصائص أخرى لكل زرّ، أضفها هنا...
-                        ],
-                    ],
-                ],
-                'layout'         => [ 'type' => 'string', 'default' => 'horizontal' ],
-                'alignment'      => [ 'type' => 'string', 'default' => is_rtl() ? 'right' : 'left' ],
-                'gapHorizontal'  => [ 'type' => 'number', 'default' => 10 ],
-                'gapVertical'    => [ 'type' => 'number', 'default' => 10 ],
-            ],
+            'attributes' => [
+    'buttons' => [
+        'type'    => 'array',
+        'default' => [],
+        'items'   => [ 'type' => 'object' ],   // ⬅︎ لا properties
+    ],
+
+    /* خصائص المجموعة */
+    'layout'        => [ 'type' => 'string',  'default' => 'horizontal' ],
+    'alignment'     => [ 'type' => 'string',  'default' => ( is_rtl() ? 'right' : 'left' ) ],
+    'gapHorizontal' => [ 'type' => 'integer', 'default' => 10 ],
+    'gapVertical'   => [ 'type' => 'integer', 'default' => 10 ],
+],
+
+
         ]
     );
 }

@@ -6,12 +6,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Display admin notices for various PlinkLy pages.
+ * Display admin notices for various Plinkly pages.
  */
 function plinkly_admin_notices() {
-    // After saving settings
+
+    /* ---------- Success / warning messages after saving settings ---------- */
     if ( ! empty( $_GET['settings-updated'] ) ) {
         $page = sanitize_text_field( $_GET['page'] ?? '' );
+
         switch ( $page ) {
             case 'plinkly-cta-settings':
                 printf(
@@ -43,7 +45,7 @@ function plinkly_admin_notices() {
         }
     }
 
-    // Permanent notice on the license page
+    /* ---------- Permanent notice on the license page ---------- */
     if ( ( $_GET['page'] ?? '' ) === 'plinkly-cta-license' ) {
         if ( plinkly_is_pro_active() ) {
             printf(
@@ -56,6 +58,31 @@ function plinkly_admin_notices() {
                 esc_html__( 'License is not active. Please enter a valid license key.', 'plinkly-smart-cta-buttons' )
             );
         }
+    }
+
+    /* ---------- Dashboard notice when no license key is present ---------- */
+    // Change the slug below if your main dashboard page uses a different slug.
+    if ( ( $_GET['page'] ?? '' ) === 'plinkly-cta-dashboard' ) {
+
+        // Retrieve the raw license key value (works for both free & Pro).
+        $license_key = trim( get_option( 'plinkly_license_key', '' ) );
+
+        if ( empty( $license_key ) ) {
+    /* translators: %s is a link to the PLINK.LY website. */
+    $message = sprintf(
+        esc_html__(
+            'You must use an activation key even in the free version to use AI generation. Go to %s.',
+            'plinkly-smart-cta-buttons'
+        ),
+        '<a href="' . esc_url( 'https://plink.ly' ) . '" target="_blank" rel="noopener">PLINK.LY</a>'
+    );
+
+    printf(
+        '<div class="notice notice-warning is-dismissible plinkly-fade-in"><p><strong>⚠️ %s</strong></p></div>',
+        wp_kses_post( $message )
+    );
+}
+
     }
 }
 add_action( 'admin_notices', 'plinkly_admin_notices' );

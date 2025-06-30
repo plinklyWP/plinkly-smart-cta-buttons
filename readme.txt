@@ -1,89 +1,139 @@
-\=== Plinkly – Smart CTA Buttons ===
-Contributors: ahmedkaladl218
-Tags: call-to-action, buttons, analytics, elementor, gutenberg
-Requires at least: 6.3
-Tested up to: 6.8
-Requires PHP: 7.4
-Stable tag: 1.0.2
-License: GPLv2 or later
-License URI: [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
+=== Plinkly – Smart CTA Buttons ===
+Contributors: ahmedkaladl218  
+Tags: CTA, buttons, analytics, AI, elementor, gutenberg, A/B testing, link tracking  
+Requires at least: 6.3  
+Tested up to: 6.8  
+Requires PHP: 7.4  
+Stable tag: 1.4.0
+License: GPLv2 or later  
+License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
-Plinkly lets you create AI‑powered call‑to‑action buttons, track clicks, and optionally connect to Plinkly Cloud for advanced analytics.
+Plinkly helps you create intelligent, AI-optimized CTA buttons, track user engagement, and unlock actionable insights with real-time analytics and A/B testing.
 
-\== Description ==
-Plinkly is a powerful, AI‑enhanced CTA button plugin for WordPress. It allows you to easily create stunning, high‑converting call‑to‑action buttons anywhere on your site.
+== Description ==
 
-The **free version** includes powerful, standalone features:
+**Smart. Customizable. Conversion‑focused.**
 
-* Create unlimited fully‑customizable CTA buttons.
-* Full control over button text, style, color, icon, and placement.
-* Manual customization of button appearance and logos.
-* Basic click‑tracking (limited analytics).
+Plinkly is the ultimate solution for crafting call-to-action buttons that don’t just look good — they **perform**. Powered by AI and precision analytics, Plinkly gives marketers and creators the tools they need to increase clicks, boost conversions, and optimize placement across any WordPress site.
 
-Plinkly optionally integrates with the **Plinkly Cloud** service ([https://plink.ly](https://plink.ly)), which provides:
+---
 
-* Automatic logo detection and optimized button styling based on recognized links.
-* AI‑generated button text suggestions.
-* Real‑time analytics dashboard for click tracking and performance monitoring.
-* CSV export for detailed analytics reporting.
+🎯 **Core Free Features:**
+* Build unlimited, fully‑customizable CTA buttons.
+* Total control over text, style, color, logo, and placement.
+* Gutenberg block and Elementor widget included.
+* Click-tracking built in — no setup needed.
+* Works out of the box, even without Plinkly Cloud.
 
-**Premium (Pro) Features via Plinkly Cloud:**
+---
 
-* Automatic button updates and styling suggestions.
-* Comprehensive performance analytics dashboard.
-* Advanced click‑tracking logs & filtering.
-* Priority support & advanced integrations.
+🌐 **Plinkly Cloud Features (Free + Pro Tiers):**
+* Smart styling with auto-detected logos and colors.
+* AI-generated CTA text suggestions based on page context.
+* Real-time analytics dashboard with performance metrics.
+* CSV export for reports and data analysis.
+* Daily quota and usage stats.
 
-To activate premium features, purchase a license key at [https://plink.ly](https://plink.ly).
+---
 
-\== Source ==
+🚀 **Premium Features (Plinkly Pro License):**
+* A/B Testing — Compare multiple CTA variants and identify top performers.
+* Advanced Analytics — Click logs, filters, date-range comparisons.
+* AI Advice — Actionable recommendations to improve conversion.
+* Auto styling updates and optimization suggestions.
+* Priority support and advanced Cloud integrations.
 
-The un‑minified JavaScript, CSS, and build instructions are available at:
-[https://github.com/plinkly/plinkly-smart-cta-buttons](https://github.com/plinkly/plinkly-smart-cta-buttons)
+---
 
-\== Installation ==
+🧩 **Available Add-Ons (Pro Only):**
+
+**Plinkly – EasyLink Put**  
+Turn keywords into buttons — automatically. Assign links to specific words from the Gutenberg editor, and let Plinkly handle the rest. Every click is tracked, giving you clear insight into what content drives results.
+
+**Plinkly – CTA Placement Tracker**  
+See exactly where your CTAs convert best. This add-on analyzes click activity by “zones” across your page layout and provides detailed reports to help you optimize for maximum engagement.
+
+**Plinkly – Link Sentinel**  
+Keep your CTAs error-free. Link Sentinel automatically scans all Plinkly buttons for broken links or failed redirects, notifies you via email, and logs results to a central report — so you never lose conversions to dead URLs.
+
+Activate add-ons from the main plugin settings screen.
+
+---
+
+To enable premium features, visit [https://plink.ly](https://plink.ly) to purchase a license key and unlock full access to Plinkly Cloud.
+
+== Source ==
+
+Full source code, including unminified JS/CSS and build instructions:  
+https://github.com/plinklyWP/plinkly-smart-cta-buttons
+
+== Installation ==
 
 1. Upload the `plinkly` folder to `/wp-content/plugins/`.
-2. Activate “Plinkly – Smart CTA Buttons” from your WordPress plugins page.
-3. Visit **Plinkly → Settings** to set global styles or enter your Plinkly Cloud API credentials.
-4. Insert buttons using the Gutenberg block, Elementor widget.
-\== Frequently Asked Questions ==
+2. Activate “Plinkly – Smart CTA Buttons” from your WordPress plugins screen.
+3. Visit **Plinkly → Settings** to configure styles or connect to Plinkly Cloud.
+4. Add buttons via the Gutenberg block or Elementor widget.
 
-\= Can I use Plinkly without connecting to Plinkly Cloud? =
-Yes. The plugin fully functions locally with manual button customization. Connecting to Plinkly Cloud is optional and adds extra features.
+== Frequently Asked Questions ==
 
-\= How do I enable advanced features like automatic logo fetching? =
-Advanced features require connecting your site to the Plinkly Cloud service. Purchase your API key at [https://plink.ly](https://plink.ly).
+= Can I use Plinkly without Plinkly Cloud? =  
+Yes. All local features (manual customization, basic analytics) work without connecting to the cloud.
 
-\= Does Plinkly work with page builders? =
-Yes. Plinkly ships with a Gutenberg block and an Elementor widget.
+= How do I enable AI and smart styling features? =  
+Connect your site to Plinkly Cloud by purchasing an API key from https://plink.ly.
 
-\= Where is click data stored? =
-Click data is stored securely in your WordPress database. Extended analytics are available when connected to Plinkly Cloud.
+= Does Plinkly support page builders? =  
+Yes. It includes native blocks for Gutenberg and widgets for Elementor.
 
-\= What happens if I deactivate the plugin? =
-Your data remains in the database. Reactivate any time to regain functionality.
+= Is my click data private? =  
+Yes. Click data is stored securely in your WordPress database. Extended analytics are cloud-based and privacy-compliant.
 
-\== Screenshots ==
+= What happens if I deactivate the plugin? =  
+Your data remains intact. Simply reactivate to continue where you left off.
 
-1. **Gutenberg Block**: Easily insert Plinkly CTA buttons.
-2. **Elementor Widget**: Drag‑and‑drop Plinkly CTA widget.
-3. **Settings Page**: Customize global button styles and manage Cloud API keys.
-4. **Analytics Dashboard (Premium)**: Real‑time click tracking & analysis.
-5. **CSV Export (Premium)**: Download detailed analytics reports.
+== Screenshots ==
 
-\== Changelog ==
+1. Smart Analytics Dashboard (clicks over time, top CTAs).
+2. A/B Testing Results view.
+3. Button style customization panel.
+4. Gutenberg block in use.
 
-\= 1.0.2 =
+== Video Demo ==
 
+https://youtu.be/5UBrsC1sg7Y?si=sBPv1CTMxHtn2pz8
+
+== Changelog ==
+= 1.4.0 =
+* Improved: Analytics dashboard layout and performance.
+* Added: Support for new add-ons (EasyLink, Placement Tracker, Link Sentinel).
+
+= 1.3.1 =
+* Improved: Analytics dashboard, UI polish, and performance optimizations.
+
+= 1.3.0 =
+* New: Plinkly AI Advice — AI-powered insights and recommendations in the analytics dashboard.
+* New: A/B Testing — Split test your CTA buttons, compare variants, and see which performs best.
+* Improved: Analytics dashboard, UI polish, and performance optimizations.
+
+= 1.2.0 =
+* New: Customize font size, logo size, and button padding. Enhanced analytics dashboard and improved performance.
+
+= 1.1.1 =
+* Improved: Button design options.
+
+= 1.1.0 =
+* Improved: Button design options (border, radius, font control).
+* Fixed: Style conflicts with some WordPress themes.
+
+= 1.0.0 =
 * Initial public release.
 * Core features: Custom CTA creation, basic analytics, optional Cloud integration.
 * Freemium model separated between local and cloud‑based premium features.
 
-\== Upgrade Notice ==
+== Upgrade Notice ==
+= 1.3.1 =
+* Improved: Analytics dashboard layout and performance.
+* Added: Support for new add-ons (EasyLink, Placement Tracker, Link Sentinel).
 
-\= 1.0.2 =
-Initial release. No previous versions available.
-
-\== License ==
+== License ==
 This plugin is licensed under GPLv2 or later. See `license.txt` for details.

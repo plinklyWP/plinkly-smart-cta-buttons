@@ -35,12 +35,12 @@ function plinkly_env( $name, $default = '' ) {
  * 1. Plugin meta
  * ----------------------------------------------------------------- */
 if ( ! defined( 'PLINKLY_PLUGIN_VERSION' ) ) {
-	define( 'PLINKLY_PLUGIN_VERSION', '1.0.1' );           // bumped on every release
+	define( 'PLINKLY_PLUGIN_VERSION', '1.4.0' );  
 }
 
 if ( ! defined( 'PLINKLY_PLUGIN_FILE' ) ) {               // used by register_*_hook()
 	// ❗️ Adjust path if you move main file elsewhere
-	define( 'PLINKLY_PLUGIN_FILE', dirname( __DIR__ ) . '/plinkly.php' );
+	define( 'PLINKLY_PLUGIN_FILE', dirname( __DIR__ ) . '/plinkly-smart-cta-buttons.php' );
 }
 
 /* -----------------------------------------------------------------
@@ -49,14 +49,14 @@ if ( ! defined( 'PLINKLY_PLUGIN_FILE' ) ) {               // used by register_*_
 if ( ! defined( 'PLINKLY_API_SECRET' ) ) {
 	define(
 		'PLINKLY_API_SECRET',
-		plinkly_env( 'PLINKLY_API_SECRET', '' )             // override via env or wp-config
+		plinkly_env( 'PLINKLY_API_SECRET', '' )   
 	);
 }
 
 if ( ! defined( 'PLYCTA_PROXY_API_KEY' ) ) {
 	define(
 		'PLYCTA_PROXY_API_KEY',
-		plinkly_env( 'PLYCTA_PROXY_API_KEY', 'e3a1f5c7d9b2a4e6f8c1b3d5a7e9f0a2' )                  // kept empty in repo
+		plinkly_env( 'PLYCTA_PROXY_API_KEY', 'e3a1f5c7d9b2a4e6f8c1b3d5a7e9f0a2' )
 	);
 }
 

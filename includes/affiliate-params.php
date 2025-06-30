@@ -10,10 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @return string The modified URL.
  */
 function plinkly_add_affiliate_params( $link ) {
-    if ( ! plinkly_is_pro_active() ) {
-        return $link;
-    }
-
     // Amazon
     if ( strpos( $link, 'amazon.' ) !== false && strpos( $link, 'tag=' ) === false ) {
         $tag = trim( get_option( 'plinkly_amazon_tag', '' ) );

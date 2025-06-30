@@ -20,7 +20,8 @@
 .affiliate-buttons-group-editor{
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    /*gap:10px;*/
+    gap: var(--gap-v) var(--gap-h);
     justify-content:flex-start;
     margin:0;
     padding:0;
@@ -58,32 +59,42 @@
 */
 
 /* Old button style */
-.affiliate-button, .plinkly-cta-button {
+/* == Button core ================================================== */
+.affiliate-button, .plinkly-cta-button{
     display:inline-flex;
     align-items:center;
     gap:8px;
-    padding:12px 24px;
-    border-radius:8px;
+    padding: var(--btn-padding-v,12px) var(--btn-padding-h,26px);
     text-decoration:none;
     color:var(--button-text-color,#fff);
-    font-size:16px;
-    font-weight:500;
-    line-height:1.5;
-    transition:transform .2s ease, opacity .2s ease, box-shadow .2s ease;
-    border:none;
+    font-size: var(--btn-font-size, 16px);
+    transition:transform .2s ease,opacity .2s ease,box-shadow .2s ease;
     cursor:pointer;
-    text-align:center;
-    /* flex:1 0 auto; ← Disabled to prevent stretching */
     max-width:100%;
     min-height:48px;
-    width: fit-content;
-    background-color:var(--btn-bg,var(--default-color));
+    width:fit-content;
+
+    /* ---------- Dynamic design tokens (set by PHP) ---------- */
+
+    /* Background */
+    background:var(--btn-bg,var(--default-color));
+
+    /* Border – both legacy (--btn-border) and new split variables */
     border:var(--btn-border,none);
+    border-style:var(--btn-border-style,none);
+    border-width:var(--btn-border-width,0);
+    border-color:var(--btn-border-color,#ccc);
+    border-radius:var(--btn-border-radius,var(--btn-radius,10px));
+
+    /* Shadow */
     box-shadow:var(--btn-shadow,none);
-    font-family:var(--btn-font,inherit),sans-serif;
-    font-weight:var(--btn-weight,500);
-    line-height:var(--btn-line,1.5);
+
+    /* Typography */
+    font-family:var(--btn-font-family,var(--btn-font,inherit)),sans-serif;
+    font-weight:var(--btn-font-weight,var(--btn-weight,500));
+    line-height:var(--btn-line-height,var(--btn-line,1.5));
 }
+
 
 .affiliate-button.with-border, .plinkly-cta-button.with-border {
     border:1px solid #ccc; /* Example, you can use CSS variables */
@@ -110,7 +121,7 @@
 .plinkly-btn img,
 .affiliate-button-logo,
 .plinkly-cta-icon {
-    height:20px;
+    height: var(--logo-size, 24px);
     width:auto;
     margin-right:8px;
     object-fit:contain;
@@ -274,4 +285,11 @@
     width: fit-content;
     min-width: unset;
     max-width: 100%;
+}
+
+.block-editor-block-list__layout a.plinkly-cta-button,
+.block-editor-block-list__layout a.affiliate-button,
+.block-editor-block-list__layout a.plinkly-btn{
+    pointer-events: none !important;  
+    cursor: default !important;        
 }

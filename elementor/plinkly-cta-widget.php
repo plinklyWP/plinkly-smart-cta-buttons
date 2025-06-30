@@ -2,8 +2,9 @@
 /**
  * Elementor Widget: PlinkLy CTA Buttons
  * --------------------------------------------------------------------------
- * A repeater-based CTA button group with rich style controls.
- * All dynamic outputs are escaped to satisfy WP-CS “EscapeOutput”.
+ * Repeater-based CTA button group with rich style controls + optional A/B-Test.
+ *
+ * All output is escaped with esc_* functions according to WP-CS "EscapeOutput".
  */
 
 use Elementor\Widget_Base;
@@ -11,14 +12,20 @@ use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Prevent direct access
-}
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+/* ════════════════════════════════════════════════════════════════════════
+ * 0) Company data cache (loaded once per page)
+ * ===================================================================== */
+$GLOBALS['PlinkLyCompanyColors'] = $GLOBALS['PlinkLyCompanyColors']
+	?? ( function_exists( 'plinkly_get_company_data' )
+	     ? plinkly_get_company_data()
+	     : [] );
 
 class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 
 	/* ───────────────────────────────
-	 * 1. Widget metadata
+	 * 1. Widget meta
 	 * ───────────────────────────── */
 	public function get_name()       { return 'plinkly_cta'; }
 	public function get_title()      { return esc_html__( 'PlinkLy CTA Buttons', 'plinkly-smart-cta-buttons' ); }
@@ -26,24 +33,22 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 	public function get_categories() { return [ 'basic' ]; }
 
 	/* ───────────────────────────────
-	 * 2. Register controls
+	 * 2. Controls
 	 * ───────────────────────────── */
 	protected function _register_controls() {
 
-		/* ===== Buttons section ===== */
+		/* ░░ Buttons ░░ */
 		$this->start_controls_section( 'section_content', [
 			'label' => __( 'Buttons', 'plinkly-smart-cta-buttons' ),
 		] );
 
 		$repeater = new Repeater();
 
-		/* --- Tabs per button --- */
-		$repeater->start_controls_tabs( 'tabs_button_style' );
+		/* Tabs per-button ------------------------------------------------ */
+		$repeater->start_controls_tabs( 'tabs_button' );
 
-		/* ▸ Tab: Content */
-		$repeater->start_controls_tab( 'tab_content', [
-			'label' => __( 'Content', 'plinkly-smart-cta-buttons' ),
-		] );
+		/* ▸ Content TAB */
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'plinkly-smart-cta-buttons' ) ] );
 
 		$repeater->add_control( 'text', [
 			'label'       => __( 'Button Text', 'plinkly-smart-cta-buttons' ),
@@ -68,8 +73,30 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 			'default'      => get_option( 'plinkly_default_new_tab', 1 ) ? 'yes' : '',
 		] );
 
+		/* ★ NEW – A/B-Test fields */
+		$repeater->add_control( 'ab_test_enabled', [
+			'label'        => __( 'Enable A/B Test', 'plinkly-smart-cta-buttons' ),
+			'type'         => Controls_Manager::SWITCHER,
+			'return_value' => 'yes',
+			'default'      => '',
+		] );
+
+		$repeater->add_control( 'ab_button_text', [
+			'label'       => __( 'Variant B – Text', 'plinkly-smart-cta-buttons' ),
+			'type'        => Controls_Manager::TEXT,
+			'condition'   => [ 'ab_test_enabled' => 'yes' ],
+			'label_block' => true,
+		] );
+
+		$repeater->add_control( 'ab_custom_color', [
+			'label'     => __( 'Variant B – Background', 'plinkly-smart-cta-buttons' ),
+			'type'      => Controls_Manager::COLOR,
+			'condition' => [ 'ab_test_enabled' => 'yes' ],
+		] );
+		/* END A/B additions */
+
 		$repeater->add_control( 'icon', [
-			'label'       => __( 'Icon', 'plinkly-smart-cta-buttons' ),
+			'label'       => __( 'Custom Icon', 'plinkly-smart-cta-buttons' ),
 			'type'        => Controls_Manager::ICONS,
 			'label_block' => true,
 		] );
@@ -86,17 +113,14 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 			],
 		] );
 
-		$repeater->end_controls_tab(); /* tab_content */
+		$repeater->end_controls_tab(); /* content */
 
-		/* ▸ Tab: Style */
-		$repeater->start_controls_tab( 'tab_style', [
-			'label' => __( 'Style', 'plinkly-smart-cta-buttons' ),
-		] );
+		/* ▸ Style TAB (unchanged) */
+		$repeater->start_controls_tab( 'tab_style', [ 'label' => __( 'Style', 'plinkly-smart-cta-buttons' ) ] );
 
 		$repeater->add_control( 'custom_color', [
-			'label'   => __( 'Background Color', 'plinkly-smart-cta-buttons' ),
-			'type'    => Controls_Manager::COLOR,
-			'default' => get_option( 'plinkly_default_color', '#3498db' ),
+			'label' => __( 'Background Color', 'plinkly-smart-cta-buttons' ),
+			'type'  => Controls_Manager::COLOR,
 		] );
 
 		$repeater->add_control( 'border_style', [
@@ -133,7 +157,6 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 			'default'    => [ 'size' => intval( get_option( 'plinkly_default_border_radius', 5 ) ) ],
 		] );
 
-		/* Typography */
 		$repeater->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -143,29 +166,27 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 			]
 		);
 
-		$repeater->end_controls_tab(); /* tab_style */
+		$repeater->end_controls_tab(); /* style */
 
-		/* ▸ Tab: Advanced */
-		$repeater->start_controls_tab( 'tab_advanced', [
-			'label' => __( 'Advanced', 'plinkly-smart-cta-buttons' ),
-		] );
+		/* ▸ Advanced TAB (unchanged) */
+		$repeater->start_controls_tab( 'tab_adv', [ 'label' => __( 'Advanced', 'plinkly-smart-cta-buttons' ) ] );
 
 		$repeater->add_control( 'shadow_offset_x', [
-			'label'   => __( 'Shadow Offset X (px)', 'plinkly-smart-cta-buttons' ),
+			'label'   => __( 'Shadow Offset X', 'plinkly-smart-cta-buttons' ),
 			'type'    => Controls_Manager::SLIDER,
 			'range'   => [ 'px' => [ 'min' => -20, 'max' => 20 ] ],
 			'default' => [ 'size' => intval( get_option( 'plinkly_default_shadow_offset_x', 0 ) ) ],
 		] );
 
 		$repeater->add_control( 'shadow_offset_y', [
-			'label'   => __( 'Shadow Offset Y (px)', 'plinkly-smart-cta-buttons' ),
+			'label'   => __( 'Shadow Offset Y', 'plinkly-smart-cta-buttons' ),
 			'type'    => Controls_Manager::SLIDER,
 			'range'   => [ 'px' => [ 'min' => -20, 'max' => 20 ] ],
 			'default' => [ 'size' => intval( get_option( 'plinkly_default_shadow_offset_y', 0 ) ) ],
 		] );
 
 		$repeater->add_control( 'shadow_blur', [
-			'label'   => __( 'Shadow Blur (px)', 'plinkly-smart-cta-buttons' ),
+			'label'   => __( 'Shadow Blur', 'plinkly-smart-cta-buttons' ),
 			'type'    => Controls_Manager::SLIDER,
 			'range'   => [ 'px' => [ 'min' => 0, 'max' => 20 ] ],
 			'default' => [ 'size' => intval( get_option( 'plinkly_default_shadow_blur', 0 ) ) ],
@@ -189,7 +210,7 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 		] );
 
 		$repeater->add_control( 'rel_attribute', [
-			'label'   => __( 'Link rel attribute', 'plinkly-smart-cta-buttons' ),
+			'label'   => __( 'rel attribute', 'plinkly-smart-cta-buttons' ),
 			'type'    => Controls_Manager::SELECT,
 			'options' => [
 				''                   => __( 'None',               'plinkly-smart-cta-buttons' ),
@@ -200,26 +221,22 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 			'default' => get_option( 'plinkly_default_nofollow', 1 ) ? 'nofollow sponsored' : '',
 		] );
 
-		$repeater->end_controls_tab();  /* tab_advanced */
-		$repeater->end_controls_tabs(); /* tabs_button_style */
+		$repeater->end_controls_tab(); /* adv */
+		$repeater->end_controls_tabs(); /* tabs */
 
 		$this->add_control( 'buttons', [
 			'label'       => __( 'Buttons List', 'plinkly-smart-cta-buttons' ),
 			'type'        => Controls_Manager::REPEATER,
 			'fields'      => $repeater->get_controls(),
 			'default'     => [
-				[
-					'text'         => 'Buy Now',
-					'link'         => [ 'url' => '#' ],
-					'custom_color' => get_option( 'plinkly_default_color', '#3498db' ),
-				],
+				[ 'text' => 'Buy Now', 'link' => [ 'url' => '#' ] ],
 			],
 			'title_field' => '{{{ text }}}',
 		] );
 
 		$this->end_controls_section(); /* /Buttons */
 
-		/* ===== Layout section ===== */
+		/* ░░ Layout ░░ */
 		$this->start_controls_section( 'section_layout', [
 			'label' => __( 'Layout', 'plinkly-smart-cta-buttons' ),
 		] );
@@ -237,167 +254,138 @@ class PlinkLy_CTA_Elementor_Widget extends Widget_Base {
 		] );
 
 		$this->add_control( 'layout', [
-			'label'   => __( 'Layout Direction', 'plinkly-smart-cta-buttons' ),
+			'label'   => __( 'Direction', 'plinkly-smart-cta-buttons' ),
 			'type'    => Controls_Manager::SELECT,
-			'options' => [
-				'horizontal' => __( 'Horizontal', 'plinkly-smart-cta-buttons' ),
-				'vertical'   => __( 'Vertical',   'plinkly-smart-cta-buttons' ),
-			],
+			'options' => [ 'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ],
 			'default' => 'horizontal',
 		] );
 
 		$this->add_responsive_control( 'gap_horizontal', [
-			'label'      => __( 'Horizontal Spacing', 'plinkly-smart-cta-buttons' ),
+			'label'      => __( 'Horizontal Gap', 'plinkly-smart-cta-buttons' ),
 			'type'       => Controls_Manager::SLIDER,
-			'size_units' => [ 'px', 'em', 'rem' ],
 			'range'      => [ 'px' => [ 'min' => 0, 'max' => 100 ] ],
-			'default'    => [
-				'size' => intval( get_option( 'plinkly_default_gap_horizontal', 10 ) ),
-				'unit' => 'px',
-			],
+			'size_units' => [ 'px', 'em', 'rem' ],
+			'default'    => [ 'size' => (int) get_option( 'plinkly_default_gap_horizontal', 10 ), 'unit' => 'px' ],
 		] );
 
 		$this->add_responsive_control( 'gap_vertical', [
-			'label'      => __( 'Vertical Spacing', 'plinkly-smart-cta-buttons' ),
+			'label'      => __( 'Vertical Gap', 'plinkly-smart-cta-buttons' ),
 			'type'       => Controls_Manager::SLIDER,
-			'size_units' => [ 'px', 'em', 'rem' ],
 			'range'      => [ 'px' => [ 'min' => 0, 'max' => 100 ] ],
-			'default'    => [
-				'size' => intval( get_option( 'plinkly_default_gap_vertical', 10 ) ),
-				'unit' => 'px',
-			],
+			'size_units' => [ 'px', 'em', 'rem' ],
+			'default'    => [ 'size' => (int) get_option( 'plinkly_default_gap_vertical', 10 ), 'unit' => 'px' ],
 		] );
 
-		$this->end_controls_section(); /* /Layout */
+		$this->end_controls_section();
 	}
 
 	/* ───────────────────────────────
-	 * 3. Helper: alignment → flex
+	 * 3. Helpers
 	 * ───────────────────────────── */
-	private function get_justify_content( $align ) {
-		if ( 'center' === $align ) {
-			return 'center';
-		}
-		if ( 'right' === $align ) {
-			return 'flex-end';
-		}
-		return 'flex-start';
+	private function flex_justify( $align ) {
+		return $align === 'center' ? 'center' : ( $align === 'right' ? 'flex-end' : 'flex-start' );
 	}
 
 	/* ───────────────────────────────
-	 * 4. Render widget
+	 * 4. Render
 	 * ───────────────────────────── */
 	protected function render() {
 
-		/* Company colors / logos fetched once */
-		$company_data = $GLOBALS['PlinkLyCompanyColors']
-		             ?? ( function_exists( 'plinkly_get_company_data' ) ? plinkly_get_company_data() : [] );
+		$buttons = $this->get_settings_for_display()['buttons'] ?? [];
+		if ( empty( $buttons ) ) return;
 
-		$s               = $this->get_settings_for_display();
-		$alignment       = $s['alignment'] ?? 'left';
-		$layout          = $s['layout']    ?? 'horizontal';
-		$flex_dir        = ( 'vertical' === $layout ) ? 'column' : 'row';
-		$justify_content = $this->get_justify_content( $alignment );
+		$settings = $this->get_settings_for_display();
+		$dir      = ( $settings['layout'] ?? 'horizontal' ) === 'vertical' ? 'column' : 'row';
+		$align    = $settings['alignment'] ?? 'left';
 
-		$gap_row_val  = $s['gap_vertical']['size']   ?? 10;
-		$gap_row_unit = $s['gap_vertical']['unit']   ?? 'px';
-		$gap_col_val  = $s['gap_horizontal']['size'] ?? 10;
-		$gap_col_unit = $s['gap_horizontal']['unit'] ?? 'px';
+		$gap_row = (int)( $settings['gap_vertical']['size']   ?? 10 ) . ( $settings['gap_vertical']['unit']   ?? 'px' );
+		$gap_col = (int)( $settings['gap_horizontal']['size'] ?? 10 ) . ( $settings['gap_horizontal']['unit'] ?? 'px' );
 
-		if ( empty( $s['buttons'] ) ) {
-			return;
-		}
+		echo '<div class="plinkly-cta-buttons" style="display:flex;flex-direction:' . esc_attr( $dir ) .
+		     ';flex-wrap:wrap;justify-content:' . esc_attr( $this->flex_justify( $align ) ) .
+		     ';row-gap:' . esc_attr( $gap_row ) . ';column-gap:' . esc_attr( $gap_col ) .
+		     ';text-align:' . esc_attr( $align ) . ';">';
 
-		/* Container */
-		echo '<div class="plinkly-cta-buttons" style="display:flex;flex-direction:' .
-		     esc_attr( $flex_dir ) .
-		     ';flex-wrap:wrap;justify-content:' . esc_attr( $justify_content ) .
-		     ';row-gap:' . esc_attr( $gap_row_val . $gap_row_unit ) .
-		     ';column-gap:' . esc_attr( $gap_col_val . $gap_col_unit ) .
-		     ';text-align:' . esc_attr( $alignment ) . ';">';
+		$company = $GLOBALS['PlinkLyCompanyColors'];
 
-		/* Loop buttons */
-		foreach ( $s['buttons'] as $btn ) {
+		foreach ( $buttons as $btn ) {
 
-			/* Prepare URL */
-			$url_raw = $btn['link']['url'] ?? '#';
-			if ( $url_raw && ! preg_match( '#^https?://#i', $url_raw ) ) {
-				$url_raw = 'https://' . $url_raw;
-			}
-			$href = esc_url( $url_raw ); // escaped once
-
-			$text     = $btn['text'] ?? esc_html__( 'Buy Now', 'plinkly-smart-cta-buttons' );
-			$font     = intval( $btn['typography_font_size']['size'] ?? $btn['font_size']['size'] ?? 16 );
-			$target   = ! empty( $btn['open_in_new_tab'] ) && 'yes' === $btn['open_in_new_tab'] ? '_blank' : '';
-			$rel_attr = $btn['rel_attribute'] ?? '';
-
-			/* Company logo/color */
-			$host   = ( $h = parse_url( $href, PHP_URL_HOST ) ) ? preg_replace( '/^www\./i', '', $h ) : '';
-			$remote = $company_data[ $host ] ?? [];
-			$logo   = ! empty( $remote['logo'] ) ? esc_url( $remote['logo'] ) : '';
-			$color  = $remote['color'] ?? ( $btn['custom_color'] ?? get_option( 'plinkly_default_color', '#3498db' ) );
-
-			/* Logo HTML */
-			$logo_html = '';
-			if ( $logo ) {
-				$sizes    = [ 'small' => 20, 'medium' => 30, 'large' => 40 ];
-				$h_px     = $sizes[ $btn['logo_size'] ?? 'small' ] ?? 20;
-				$logo_html = '<img src="' . $logo . '" alt="" style="height:' . intval( $h_px ) . 'px;width:auto;margin-right:5px;">';
+			/* URL + host */
+			$url = $btn['link']['url'] ?? '#';
+			if ( $url && ! preg_match( '#^https?://#i', $url ) ) $url = 'https://' . $url;
+			$href = esc_url( $url );
+			$host = '';
+			if ( $href ) {
+				$p = wp_parse_url( $href );
+				if ( ! empty( $p['host'] ) ) $host = preg_replace( '/^www\./i', '', $p['host'] );
 			}
 
-			/* Icon HTML */
+			/* ★ NEW choose variant */
+			$variant = ( ! empty( $btn['ab_test_enabled'] ) && 'yes' === $btn['ab_test_enabled'] && rand(0,1) )
+				? 'B' : 'A';
+
+			/* Text */
+			$text = ( $variant === 'B' && ! empty( $btn['ab_button_text'] ) )
+				? $btn['ab_button_text']
+				: ( $btn['text'] ?? esc_html__( 'Buy Now', 'plinkly-smart-cta-buttons' ) );
+
+			/* Background */
+			$custom_color = $variant === 'B' ? ( $btn['ab_custom_color'] ?: '' ) : ( $btn['custom_color'] ?: '' );
+			$brand_color  = $company[ $host ]['color'] ?? '';
+			$color        = $custom_color ?: ( $brand_color ?: get_option( 'plinkly_default_color', '#3498db' ) );
+
+			/* Icon vs logo (icon wins) */
 			$icon_html = '';
 			if ( ! empty( $btn['icon']['value'] ) ) {
-				$icon_html = '<i class="' . esc_attr( $btn['icon']['value'] ) . '" style="font-size:' . intval( $font ) . 'px;margin-right:5px;"></i>';
+				$icon_html = '<i class="' . esc_attr( $btn['icon']['value'] ) .
+				             '" style="font-size:1em;margin-right:5px;"></i>';
+			}
+
+			$logo_html = '';
+			if ( empty( $icon_html ) && ! empty( $company[ $host ]['logo'] ) ) {
+				$sizes = [ 'small'=>20,'medium'=>30,'large'=>40 ];
+				$sz    = $sizes[ $btn['logo_size'] ?? 'small' ] ?? 20;
+				$logo_html = '<img src="' . esc_url( $company[ $host ]['logo'] ) .
+				             '" alt="" style="height:' . $sz . 'px;width:auto;margin-right:5px;">';
 			}
 
 			/* Border / radius / shadow */
-			$bs         = $btn['border_style'] ?? 'none';
-			$bw         = intval( $btn['border_width']['size'] ?? 0 );
-			$border_css = ( 'none' !== $bs && $bw > 0 )
-				? "border:{$bw}px {$bs} " . esc_attr( $btn['border_color'] ) . ';'
+			$bw      = intval( $btn['border_width']['size'] ?? 0 );
+			$border  = ( 'none' !== ( $btn['border_style'] ?? 'none' ) && $bw )
+				? "border:{$bw}px " . esc_attr( $btn['border_style'] ) . ' ' . esc_attr( $btn['border_color'] ) . ';'
 				: '';
-			$radius_css = 'border-radius:' . intval( $btn['border_radius']['size'] ?? 5 ) . 'px;';
+			$radius  = 'border-radius:' . intval( $btn['border_radius']['size'] ?? 5 ) . 'px;';
+			$sb      = intval( $btn['shadow_blur']['size'] ?? 0 );
+			$shadow  = $sb ? 'box-shadow:' .
+			            intval( $btn['shadow_offset_x']['size'] ?? 0 ) . 'px ' .
+			            intval( $btn['shadow_offset_y']['size'] ?? 0 ) . 'px ' .
+			            $sb . 'px ' . esc_attr( $btn['shadow_color'] ) . ';' : '';
 
-			$sb         = intval( $btn['shadow_blur']['size'] ?? 0 );
-			$shadow_css = ( $sb > 0 )
-				? 'box-shadow:' .
-				  intval( $btn['shadow_offset_x']['size'] ?? 0 ) . 'px ' .
-				  intval( $btn['shadow_offset_y']['size'] ?? 0 ) . 'px ' .
-				  $sb . 'px ' . esc_attr( $btn['shadow_color'] ) . ';'
-				: '';
+			$style = 'background:' . esc_attr( $color ) .
+			         ';padding:10px 20px;display:inline-flex;align-items:center;gap:5px;color:#fff;text-decoration:none;' .
+			         $border . $radius . $shadow;
 
-			$style = 'background-color:' . esc_attr( $color ) . ';padding:10px 20px;' .
-			         'display:inline-flex;align-items:center;gap:5px;' .
-			         'text-decoration:none;color:#fff;' .
-			         $border_css . $radius_css . $shadow_css;
-
-			/* Arrange inner */
+			/* Order according to icon_position */
 			$pos = $btn['icon_position'] ?? 'before_text';
-			switch ( $pos ) {
-				case 'before_logo':
-					$inner = $icon_html . $logo_html . '<span class="plinkly-cta-text">' . esc_html( $text ) . '</span>';
-					break;
-				case 'after_logo':
-					$inner = $logo_html . $icon_html . '<span class="plinkly-cta-text">' . esc_html( $text ) . '</span>';
-					break;
-				case 'after_text':
-					$inner = $logo_html . '<span class="plinkly-cta-text">' . esc_html( $text ) . '</span>' . $icon_html;
-					break;
-				default: /* before_text */
-					$inner = $logo_html . $icon_html . '<span class="plinkly-cta-text">' . esc_html( $text ) . '</span>';
+			$order = match ( $pos ) {
+				'before_logo' => $icon_html . $logo_html,
+				'after_logo'  => $logo_html . $icon_html,
+				'after_text'  => $logo_html . '<span class="plinkly-cta-text">' . esc_html( $text ) . '</span>' . $icon_html,
+				default       => $logo_html . $icon_html /* before_text (default) */
+			};
+			if ( ! str_contains( $order, '<span' ) ) {
+				$order .= '<span class="plinkly-cta-text">' . esc_html( $text ) . '</span>';
 			}
 
-			/* Print anchor */
-			echo '<a href="' . $href . '"' .                       /* href already escaped */
-			     ( $target   ? ' target="' . esc_attr( $target )   . '"' : '' ) .
-			     ( $rel_attr ? ' rel="'    . esc_attr( $rel_attr ) . '"' : '' ) .
-			     ' class="plinkly-cta-button elementor-repeater-item-' . esc_attr( $btn['_id'] ) .
-			     '" style="' . esc_attr( $style ) . '">' .
-			     wp_kses_post( $inner ) .
-			     '</a>';
+			echo '<a href="' . esc_url( $href ) . '"' .
+				( ! empty( $btn['open_in_new_tab'] ) && 'yes' === $btn['open_in_new_tab'] ? ' target="_blank"' : '' ) .
+				( $btn['rel_attribute'] ? ' rel="' . esc_attr( $btn['rel_attribute'] ) . '"' : '' ) .
+				' class="plinkly-cta-button elementor-repeater-item-' . esc_attr( $btn['_id'] ) .
+				'" style="' . esc_attr( $style ) . '" data-variant="' . esc_attr( $variant ) . '">' .
+				wp_kses_post( $order ) .
+				'</a>';
 		}
 
-		echo '</div>'; /* .plinkly-cta-buttons */
+		echo '</div>';
 	}
 }

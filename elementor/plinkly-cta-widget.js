@@ -1,32 +1,47 @@
 ;(function ($) {
 
+	/**
+     * Initialize color fields in a single Repeater item.
+     * Applies to both custom_color and ab_custom_color (if present).
+     */
 	function updateColor(wrapper, domain) {
 
-		if (!window.PlinkLyCompanyColors || !window.PlinkLyCompanyColors[domain]) return;
+		if ( !window.PlinkLyCompanyColors || !window.PlinkLyCompanyColors[domain] )
+			return;
 
 		var color = window.PlinkLyCompanyColors[domain].color;
-		if (!/^#([0-9A-F]{3}){1,2}$/i.test(color)) return;
+		if ( !/^#([0-9A-F]{3}){1,2}$/i.test(color) )
+			return;
 
-		var $input = wrapper.find('[data-setting="custom_color"] input').first();
-		if (!$input.length) return;
+		['custom_color', 'ab_custom_color'].forEach(function (setting) {
 
-		$input.val(color)
-		      .trigger('input change keyup');      // يُزامن Elementor فوراً
+			var $field = wrapper.find('[data-setting="' + setting + '"] input').first();
+			if ( !$field.length ) return;
 
-		if (typeof $input.wpColorPicker === 'function') {
-			try { $input.wpColorPicker('color', color); } catch (e) {}
-		}
+			$field.val(color).trigger('input change keyup'); // يزامن Elementor فورًا
+
+			// مزامنة الـ colour-picker إذا كان مُفعّلًا
+			if ( typeof $field.wpColorPicker === 'function' ) {
+				try { $field.wpColorPicker('color', color); } catch (e) {}
+			}
+		});
 	}
 
+	/**
+     * When the link field changes, extract the domain and set the colors.
+     */
 	$(document).on('input change', '[data-setting="link"] input', function () {
-		var url = $(this).val() || '';
-		if (url && !/^https?:\/\//i.test(url)) url = 'https://' + url;
+
+		var val = $(this).val() || '';
+		if ( val && !/^https?:\/\//i.test(val) ) val = 'https://' + val;
 
 		try {
-			var domain  = new URL(url).hostname.replace(/^www\./, '');
+			var domain  = new URL(val).hostname.replace(/^www\./i, '');
 			var wrapper = $(this).closest('.elementor-repeater-item');
 			updateColor(wrapper, domain);
-		} catch (_) { console.warn('PlinkLy: Invalid URL'); }
+		} catch (_) {
+			// عنوان غير صالح – تجاهَل
+		}
 	});
 
 })(jQuery);
